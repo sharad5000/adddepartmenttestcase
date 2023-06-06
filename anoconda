@@ -1,0 +1,375 @@
+from selenium.webdriver import Keys
+from selenium.webdriver.common.by import By
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+class TestLogin:
+    def test_001(self):
+        driver = webdriver.Chrome()
+        driver.get("https://testing.wenodo.com/")
+        driver.maximize_window()
+
+        driver.find_element(By.XPATH, "//div[@class='input-group mb-2']//input[@placeholder='E-mail Address']").send_keys(
+            "mubashir@gmail.com")
+        driver.find_element(By.XPATH, "//input[@id='password']").send_keys("demo123")
+        driver.find_element(By.XPATH, "//login[@ng-show='LOGIN_FLAG']//button[@id='submit']").click()
+        driver.implicitly_wait(20)
+        time.sleep(2)
+#fill both mandtory filed and non mantory and save the form
+        # click on human Resource
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span").click()
+        driver.implicitly_wait(30)
+
+        # click on add department
+        driver.find_element(By.XPATH,
+                            "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]").click()
+        time.sleep(3)
+
+        driver.implicitly_wait(20)
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/div[2]/div[1]/div[2]/div/div/div[2]/a[1]").click()
+        driver.implicitly_wait(20)
+
+        # Department name*
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[1]/div/div/input").send_keys(
+            "it")
+        driver.implicitly_wait(20)
+
+
+
+        # reporting department*
+        driver.implicitly_wait(20)
+        time.sleep(5)
+
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[4]/div/div/select").send_keys(
+            "it ")
+
+        # Division name
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[3]/div/div/select").send_keys(
+            "operation")
+
+        # save and position
+        driver.find_element(By.XPATH, "/html/body/div[3]/div/section/div/ng-view/form/div/div[4]/div/button[1]").click()
+
+        if 'Add Position' in driver.find_element(By.XPATH,
+                                                 "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[1]/div[1]/templateurl[1]/div[1]/h5[1]").text:
+            assert True
+        else:
+            assert False
+
+        driver.quit()
+
+
+
+
+
+
+# fill mandtory filed and leaveing all the non mantory filed
+
+
+    def test_002(self, false=None):
+        from selenium import webdriver
+        import time
+        driver = webdriver.Chrome()
+
+        driver.get("https://testing.wenodo.com/")
+        driver.maximize_window()
+        driver.find_element(By.XPATH,
+                            "//div[@class='input-group mb-2']//input[@placeholder='E-mail Address']").send_keys(
+            "mubashir@gmail.com")
+        driver.find_element(By.XPATH, "//input[@id='password']").send_keys("demo123")
+        driver.find_element(By.XPATH, "//login[@ng-show='LOGIN_FLAG']//button[@id='submit']").click()
+        driver.implicitly_wait(20)
+
+
+        # click on human Resource
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span").click()
+
+        driver.implicitly_wait(20)
+        time.sleep(5)
+        # click on add department
+        driver.find_element(By.XPATH,
+                            "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]").click()
+
+
+        driver.implicitly_wait(20)
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/div[2]/div[1]/div[2]/div/div/div[2]/a[1]").click()
+        driver.implicitly_wait(20)
+        # Department name*
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[1]/div/div/input").send_keys(
+            "it")
+        # reporting department*
+        driver.implicitly_wait(20)
+        time.sleep(5)
+
+
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[4]/div/div/select").send_keys(
+            "it support department")
+        driver.implicitly_wait(20)
+        # Division name
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[3]/div/div/select").send_keys(
+            "")
+        driver.implicitly_wait(20)
+        # save and position
+        driver.find_element(By.XPATH, "/html/body/div[3]/div/section/div/ng-view/form/div/div[4]/div/button[1]").click()
+        driver.implicitly_wait(30)
+
+        if 'Add Position' in driver.find_element(By.XPATH,
+                                                 "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[1]/div[1]/templateurl[1]/div[1]/h5[1]").text:
+            assert True
+        else:
+            assert false
+        driver.quit()
+
+        #leaving all the mandtory and fill non mandtory filed
+
+    def test_003(self, false=None):
+        from selenium import webdriver
+        import time
+        driver = webdriver.Chrome()
+
+        driver.get("https://testing.wenodo.com/")
+        driver.maximize_window()
+        driver.find_element(By.XPATH,
+                            "//div[@class='input-group mb-2']//input[@placeholder='E-mail Address']").send_keys(
+            "mubashir@gmail.com")
+        driver.find_element(By.XPATH, "//input[@id='password']").send_keys("demo123")
+        driver.find_element(By.XPATH, "//login[@ng-show='LOGIN_FLAG']//button[@id='submit']").click()
+        driver.implicitly_wait(20)
+
+
+        # click on human Resource
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span").click()
+
+        driver.implicitly_wait(20)
+        # click on add department
+        driver.find_element(By.XPATH,
+                            "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]").click()
+
+
+        driver.implicitly_wait(20)
+        time.sleep(3)
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/div[2]/div[1]/div[2]/div/div/div[2]/a[1]").click()
+        driver.implicitly_wait(20)
+        time.sleep(3)
+        # Department name*
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[1]/div/div/input").send_keys(
+            "")
+        # reporting department*
+        driver.implicitly_wait(20)
+        time.sleep(2)
+
+
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[4]/div/div/select").send_keys(
+            "")
+        driver.implicitly_wait(20)
+        # Division name
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[3]/div/div/select").send_keys(
+            "operation")
+        # save and position
+        driver.find_element(By.XPATH, "/html/body/div[3]/div/section/div/ng-view/form/div/div[4]/div/button[1]").click()
+        driver.implicitly_wait(20)
+
+        if ' Please provide the mandatory details to submit(marked in red).' in driver.find_element(By.XPATH,
+                                                                                                    "//span[@class='help-block errormessageline']").text:
+
+            assert True
+        else:
+            assert False
+        driver.quit()
+#save and go back button functionality
+
+    def test_004(self, false=None):
+        from selenium import webdriver
+        import time
+        driver = webdriver.Chrome()
+
+        driver.get("https://testing.wenodo.com/")
+        driver.maximize_window()
+        driver.find_element(By.XPATH,
+                            "//div[@class='input-group mb-2']//input[@placeholder='E-mail Address']").send_keys(
+            "mubashir@gmail.com")
+        driver.find_element(By.XPATH, "//input[@id='password']").send_keys("demo123")
+        driver.find_element(By.XPATH, "//login[@ng-show='LOGIN_FLAG']//button[@id='submit']").click()
+        driver.implicitly_wait(20)
+
+
+        # click on human Resource
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span").click()
+
+        driver.implicitly_wait(20)
+        # click on add department
+        driver.find_element(By.XPATH,
+                            "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]").click()
+
+
+        driver.implicitly_wait(20)
+        time.sleep(5)
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/div[2]/div[1]/div[2]/div/div/div[2]/a[1]").click()
+        # Department name*
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[1]/div/div/input").send_keys(
+            "it an invo")
+        # reporting department*
+        driver.implicitly_wait(20)
+        time.sleep(2)
+
+
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[4]/div/div/select").send_keys(
+            "demo85")
+        # Division name
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[3]/div/div/select").send_keys(
+            "operation")
+        driver.implicitly_wait(20)
+        # save and go back
+        driver.find_element(By.XPATH, "//button[normalize-space()='Save and go back']").click()
+        driver.implicitly_wait(20)
+
+        if 'Department List' in driver.find_element(By.XPATH,
+                                                                                                    "//h5[@class='heading-text-2 mt-2']").text:
+
+            assert True
+        else:
+            assert False
+        driver.quit()
+#reset button functionality
+    def test_005(self, false=None):
+        from selenium import webdriver
+        import time
+        driver = webdriver.Chrome()
+
+        driver.get("https://testing.wenodo.com/")
+        driver.maximize_window()
+        driver.find_element(By.XPATH,
+                            "//div[@class='input-group mb-2']//input[@placeholder='E-mail Address']").send_keys(
+            "mubashir@gmail.com")
+        driver.find_element(By.XPATH, "//input[@id='password']").send_keys("demo123")
+        driver.find_element(By.XPATH, "//login[@ng-show='LOGIN_FLAG']//button[@id='submit']").click()
+        driver.implicitly_wait(20)
+
+        # click on human Resource
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span").click()
+
+        driver.implicitly_wait(20)
+        time.sleep(5)
+        # click on add department
+        driver.find_element(By.XPATH,
+                            "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]").click()
+
+        driver.implicitly_wait(20)
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/div[2]/div[1]/div[2]/div/div/div[2]/a[1]").click()
+        # Department name*
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[1]/div/div/input").send_keys(
+            "it an invo")
+        # reporting department*
+        driver.implicitly_wait(25)
+        time.sleep(2)
+
+
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[4]/div/div/select").send_keys(
+            "demo85")
+        # Division name
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[3]/div/div/select").send_keys(
+            "operation")
+        driver.implicitly_wait(20)
+        # reset
+        driver.find_element(By.XPATH, "//button[@ng-click='ResetDept();']").click()
+
+        driver.implicitly_wait(20)
+
+        # leaving all the filed and submit the form
+
+    def test_006(self, false=None):
+        from selenium import webdriver
+        import time
+        driver = webdriver.Chrome()
+
+        driver.get("https://testing.wenodo.com/")
+        driver.maximize_window()
+        driver.find_element(By.XPATH,
+                            "//div[@class='input-group mb-2']//input[@placeholder='E-mail Address']").send_keys(
+            "mubashir@gmail.com")
+        driver.find_element(By.XPATH, "//input[@id='password']").send_keys("demo123")
+        driver.find_element(By.XPATH, "//login[@ng-show='LOGIN_FLAG']//button[@id='submit']").click()
+        driver.implicitly_wait(20)
+
+
+        # click on human Resource
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span").click()
+
+        driver.implicitly_wait(20)
+        # click on add department
+        driver.find_element(By.XPATH,
+                            "/html[1]/body[1]/div[3]/div[1]/section[1]/div[1]/ng-view[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]").click()
+
+
+        driver.implicitly_wait(20)
+        time.sleep(5)
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/div[2]/div[1]/div[2]/div/div/div[2]/a[1]").click()
+        driver.implicitly_wait(20)
+        time.sleep(3)
+        # Department name*
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[1]/div/div/input").send_keys(
+            "")
+        # reporting department*
+        driver.implicitly_wait(20)
+        time.sleep(2)
+
+
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[4]/div/div/select").send_keys(
+            "")
+        driver.implicitly_wait(20)
+        # Division name
+        driver.find_element(By.XPATH,
+                            "/html/body/div[3]/div/section/div/ng-view/form/div/div[2]/templateurl/div/div[2]/div[3]/div/div/select").send_keys(
+            "")
+        # save and position
+        driver.find_element(By.XPATH, "/html/body/div[3]/div/section/div/ng-view/form/div/div[4]/div/button[1]").click()
+        driver.implicitly_wait(20)
+
+        if ' Please provide the mandatory details to submit(marked in red).' in driver.find_element(By.XPATH,
+                                                                                                    "//span[@class='help-block errormessageline']").text:
+
+            assert True
+        else:
+            assert False
+        driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
